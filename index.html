@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remember The Cat </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="wrap">
+        <header class="topbar">
+            <h1>Remember The Cat</h1>
+            <div class="controls-row">
+                <div class="control">
+                    <label for="difficulty">Difficulty</label>
+                    <select name="" id="difficulty">
+                        <option name="" id="easy">Easy</option>
+                        <option name="" id="medium" selected>Medium</option>
+                        <option name="" id="hard">Hard</option>
+                    </select>
+                </div>
+
+                <div class="status">
+                    <div> ⏱ <span id="timer">01:30</span></div>
+                    <div>💖 Lives: <span id="lives">3</span></div>
+                    <div>⭐ Score: <span id="score">0</span></div>
+                </div>
+
+                <button id="restart" class="btn">Restart</button>
+            </div>
+        </header>
+
+        <section id="board" class="board"></section>
+
+        <footer class="footer">
+            <p class="hint">Match the cute pastel cats! Flip 2 cards. Matching pair = +10pts. Wrong pair = lose 1 life.</p>
+        </footer>
+    </main>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-card">
+            <h2 id="modal-tittle">You Win!</h2>
+            <p class="modal-body">Great Job! 🎉</p>
+            <div class="modal-actions">
+                <button class="btn" id="modal-replay">Play Again</button>
+                <button class="btn ghost" id="modal-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
