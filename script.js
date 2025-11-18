@@ -116,6 +116,91 @@ function buildBoard(pairs){
             return;
 
         card.classList.add('flipped');
+
+        if(!firstCard){
+            firstCard = card;
+            return;
+        }
+
+        secondCard = card;
+        lockBoard = true;
+
+        //check match 
+        const a = firstCard.dataset.value;
+        const b = secondCard.dataset.value;
+
+        if(a==b){
+            //match
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            score += 10;
+            matchedCount++;
+            scoreEl.textContent = score;
+
+            resetFlip();
+
+            //win condition
+            if(matchedCount >= totalPairs){
+                clearInterval(timerInterval);
+                gameOver(true, 'You matched all pairs! Score: ' + score);
+
+            }else{
+                lockBoard = false;
+            }
+
+        }else{
+            //not match
+            lives--;
+            livesEl.textContent= lives;
+            setTimeout(() => {
+                firstCard,classList.remove('flipped');
+                secondCard,classList.remove('flipped');
+                resetFlip();
+                lockBoard = false;
+                if(lives <= 0){
+                    clearInterval(timerInterval);
+                    gameOver(false, 'You ran out of lives! Try Again.');
+                }
+            }, 700);
+        }
     }
 
+    function resetFlip(){
+        firstCard = null;
+        secondCard = null;
+    }
+
+    function gameOver(won, message){
+        modalTitle.textContent = won ? 'You Win! 🎉' : 'GAme Over 😿';
+        modalBody.textContent = message;
+        modal.classList.remove('hidden');
+    }
+
+    function restart(){
+        modal.classList.add('hidden');
+        init();
+    }
+
+    restartBtn.addEventListener('click', ()=> {init(); });
+    modalReplay.addEventListener('click', ()=> {restart(); });
+    modalClose.addEventListener('click', ()=> {modal.classList.add('hidden'); });
+    difficultySel.addEventListener('change', ()=> {init(); });
+
+    //shuffle 
+    function shuffle(array){
+        for(let i= array.length -1; i>0; i--){
+            const j = Math.floor(Math.random()*(i+1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function formatTime(sec){
+        sec = Math.max(0, sec) || 0;
+        const m = Math.floor(sec / 60);
+        const s = Math.floor(sec % 60);
+        return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+
+    }
+
+    init();
 }
