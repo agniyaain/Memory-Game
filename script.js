@@ -6,7 +6,7 @@ const restartBtn = document.getElementById('restart');
 const difficultySel= document.getElementById('difficulty');
 
 const modal= document.getElementById('modal');
-const modalTitle= document.getElementById('modal-tittle');
+const modalTitle= document.getElementById('modal-title');
 const modalBody= document.getElementById('modal-body');
 const modalReplay= document.getElementById('modal-replay');
 const modalClose= document.getElementById('modal-close');
@@ -39,7 +39,7 @@ function init(){
     const diff = difficultySel.value;
     const cfg = difficultySettings[diff];
     totalPairs = cfg.pairs;
-    timeLeft = cfg.timer;
+    timeLeft = cfg.time;
     lives = cfg.lives;
 
     score =0;
@@ -98,8 +98,8 @@ function buildBoard(pairs){
         const varian = variants[idx % variants.length];
 
         const back = document.createElement('div');
-        back.className = 'card-back ${varian}';
-        back.innerHTML = '<div class="emojo">${emoji}</div>';
+        back.className = `card-back ${varian}`;
+        back.innerHTML = `<div class="emoji">${emoji}</div>`;
 
         inner.appendChild(front);
         inner.appendChild(back);
@@ -108,6 +108,7 @@ function buildBoard(pairs){
         card.addEventListener('click', onCardClick);
         boardEl.appendChild(card);
     });
+}
 
     function onCardClick(e){
         const card = e.currentTarget;
@@ -153,8 +154,8 @@ function buildBoard(pairs){
             lives--;
             livesEl.textContent= lives;
             setTimeout(() => {
-                firstCard,classList.remove('flipped');
-                secondCard,classList.remove('flipped');
+                firstCard.classList.remove('flipped');
+                secondCard.classList.remove('flipped');
                 resetFlip();
                 lockBoard = false;
                 if(lives <= 0){
@@ -201,6 +202,4 @@ function buildBoard(pairs){
         return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
 
     }
-
-    init();
-}
+init();

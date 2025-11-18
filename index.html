@@ -14,9 +14,9 @@
                 <div class="control">
                     <label for="difficulty">Difficulty</label>
                     <select name="" id="difficulty">
-                        <option name="" id="easy">Easy</option>
-                        <option name="" id="medium" selected>Medium</option>
-                        <option name="" id="hard">Hard</option>
+                        <option name="" id="easy" value="easy">Easy</option>
+                        <option name="" id="medium" value="medium" selected >Medium</option>
+                        <option name="" id="hard" value="hard">Hard</option>
                     </select>
                 </div>
 
@@ -39,8 +39,8 @@
 
     <div id="modal" class="modal hidden">
         <div class="modal-card">
-            <h2 id="modal-tittle">You Win!</h2>
-            <p class="modal-body">Great Job! 🎉</p>
+            <h2 id="modalTitle" class="modal-title">You Win!</h2>
+            <p class="modal-body" id="modalBody">Great Job! 🎉</p>
             <div class="modal-actions">
                 <button class="btn" id="modal-replay">Play Again</button>
                 <button class="btn ghost" id="modal-close">Close</button>
