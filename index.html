@@ -1,46 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remember The Cat </title>
+    <title>Remember The Cat</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
+    <!-- START MODAL -->
+    <div id="startModal" class="modal">
+        <div class="modal-card">
+            <h2>Pilih Difficulty</h2>
+
+            <div class="select-wrapper " >
+                <div class="dropdown" id="dropdownStart">
+                    <div class="dropdown-selected">Medium</div>
+
+                    <div class="dropdown-menu">
+                        <div data-value="easy">Easy</div>
+                        <div data-value="medium">Medium</div>
+                        <div data-value="hard">Hard</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn" id="startButton">Mulai Game</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN AREA -->
     <main class="wrap">
+
         <header class="topbar">
             <h1>Remember The Cat</h1>
+
             <div class="controls-row">
+
+                <!-- Difficulty Dropdown -->
                 <div class="control">
-                    <label for="difficulty">Difficulty</label>
-                    <select name="" id="difficulty">
-                        <option name="" id="easy" value="easy">Easy</option>
-                        <option name="" id="medium" value="medium" selected >Medium</option>
-                        <option name="" id="hard" value="hard">Hard</option>
-                    </select>
+                    <label>Difficulty</label>
+                    <div class="select-wrapper">
+                        <div class="dropdown" id="dropdownMain">
+                            <div class="dropdown-selected">Medium</div>
+
+                            <div class="dropdown-menu">
+                                <div data-value="easy">Easy</div>
+                                <div data-value="medium">Medium</div>
+                                <div data-value="hard">Hard</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Status -->
                 <div class="status">
-                    <div> ⏱ <span id="timer">01:30</span></div>
+                    <div>⏱ <span id="timer">01:30</span></div>
                     <div>💖 Lives: <span id="lives">3</span></div>
                     <div>⭐ Score: <span id="score">0</span></div>
                 </div>
 
+                <!-- Restart -->
                 <button id="restart" class="btn">Restart</button>
+
             </div>
         </header>
 
         <section id="board" class="board"></section>
 
         <footer class="footer">
-            <p class="hint">Match the cute pastel cats! Flip 2 cards. Matching pair = +10pts. Wrong pair = lose 1 life.</p>
+            <p class="hint">Match the cute pastel cats! Flip 2 cards. Matching = +10pts. Wrong pair = lose 1 life.</p>
         </footer>
+
     </main>
 
+    <!-- END MODAL -->
     <div id="modal" class="modal hidden">
         <div class="modal-card">
-            <h2 id="modalTitle" class="modal-title">You Win!</h2>
-            <p class="modal-body" id="modalBody">Great Job! 🎉</p>
+            <h2 id="modalTitle">You Win!</h2>
+            <p id="modalBody">Great Job! 🎉</p>
             <div class="modal-actions">
                 <button class="btn" id="modal-replay">Play Again</button>
                 <button class="btn ghost" id="modal-close">Close</button>
@@ -48,7 +90,7 @@
         </div>
     </div>
 
-
     <script src="script.js"></script>
 </body>
+
 </html>
