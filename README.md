@@ -17,15 +17,15 @@ Tujuan dari proyek ini — selain sebagai latihan implementasi web dasar — ada
 - JavaScript  
 
 ## Cara Menjalankan Secara Lokal  
-1. Clone repository ini:  
+1.    Clone repository ini:
    ```bash
    git clone https://github.com/agniyaain/Memory-Game.git
    ```
-2. Masuk ke folder project:
-  ```bash
-  cd Memory-Game
-  ```
-3. Buka file index.html di web browser favoritmu — modern dan up-to-date browser disarankan.
+2.   Masuk ke folder project:
+   ```bash
+   cd Memory-Game
+   ```
+3.   Buka file index.html di web browser favoritmu — modern dan up-to-date browser disarankan.
 
 ## Struktur Direktori
 Memory-Game/
